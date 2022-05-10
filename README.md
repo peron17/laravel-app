@@ -9,7 +9,12 @@ To mastering the Laravel and other web tech things like css, etc.
 -   **SCSS**
     -   How to using sass live compiler using vscode plugin and how to do configuration.
     -   CSS syntax
+-   **DB Migration**
+    -   Migration file
+    -   Seeding the table
 
 ## Features
+
+-   **User Authentication** (registration, login, forgot password)
 
 ## Project Installation
