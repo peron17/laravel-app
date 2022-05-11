@@ -17,4 +17,8 @@ To mastering the Laravel and other web tech things like css, etc.
 
 -   **User Authentication** (registration, login, forgot password)
 
+## References
+
+-   Faker -> [https://github.com/fzaninotto/Faker]https://github.com/fzaninotto/Faker
+
 ## Project Installation
