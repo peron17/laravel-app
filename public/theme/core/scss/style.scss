@@ -1,6 +1,18 @@
-// the beginning
+:root {
+    --bg-opacity: 1;
+
+    --border: 0 solid #e2e8f0;
+
+    --color-muted: rgba(113, 128, 150, 1);
+    --color: rgba(26, 32, 44, 1);
+}
+
 body {
     box-sizing: border-box;
-    background-color: #f1f1f1;
-    font-size: .725rem;
+    background-color: rgba(247, 250, 252, var(--bg-opacity));
+    font-size: 0.725rem;
+}
+
+.container {
+    color: #f1f1f1;
 }

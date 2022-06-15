@@ -4,6 +4,7 @@ var sass = require('gulp-sass')(require('sass'));
 var uglify = require('gulp-uglifycss');
 var browserSync = require('browser-sync').create();
 var strip = require('gulp-strip-comments');
+const { watch } = require('browser-sync');
 
 gulp.task('sass', function() {
     return gulp
@@ -24,6 +25,20 @@ gulp.task('js', function() {
         .pipe(gulp.dest('../dist/js'))
         .pipe(browserSync.stream());
 });
+
+gulp.task('default', gulp.series('sass', 'js'));
+
+function watcher() {
+    gulp.watch('./scss/*.scss', gulp.series('sass'));
+    gulp.watch('./js/*.js', gulp.series('js'));
+}
+
+exports.watcher = watcher;
+
+// gulp.task('watch', function() {
+//     gulp.watch('./scss/*.scss', gulp.series('sass'));
+//     gulp.watch('./js/*.js', gulp.series('js'));
+// });
 
 // gulp.task('sass', function () {
 //     return gulp.src('./scss/*.scss')
