@@ -1,18 +1,25 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('login', [App\Http\Controllers\AdminController::class, 'login'])->name('admin.login');
+// route name prefix "admin."
+Route::name('admin.')->group(function () {
 
-// check if logged in and authorized for admin
-Route::middleware(['adminauth'])->group(function () {
-    Route::get('/', function() {
-        return view('admin.dashboard');
+    Route::get('login', [App\Http\Controllers\AuthController::class, 'loginAdmin'])->name('login');
+    Route::post('login', [App\Http\Controllers\AuthController::class, 'loginAdmin'])->name('login.action');
+    
+    // check if logged in and authorized for admin
+    Route::middleware(['adminauth'])->group(function () {
+        Route::get('/', function() {
+            return view('admin.dashboard');
+        })->name('dashboard');
+
+        // logout
+        Route::get('logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
     });
-
-
+    
+    Route::get('401', function () {
+        return view('admin.error.401');
+    })->name('401');
 });
-
-Route::get('401', function () {
-    return view('admin.error.401');
-})->name('admin.401');

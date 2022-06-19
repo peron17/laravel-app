@@ -17,10 +17,8 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if ( Auth::check() && Auth::user()->roles->is_admin == 1 )
-            return redirect()->route('home');
-        elseif (!Auth::check())  
-            return redirect()->route('admin.401');
+        if (!Auth::check())  
+            return redirect()->route('admin.login');
 
         return $next($request);
     }

@@ -78,3 +78,42 @@ label {
         }
     }
 }
+
+.content {
+    margin-top: 2.2rem;
+
+    .page {
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            &-left {
+                max-width: 800px;
+            }
+            &-right {
+                max-width: 400px;
+            }
+        }
+    }
+
+    h2.page-title {
+        small {
+            font-size: 1rem;
+            margin-left: 0.3rem;
+            color: var(--color-muted);
+        }
+    }
+}
+
+.navbar {
+    border-bottom: 1px solid #e9e9e9;
+
+    &-brand {
+        margin-right: 3rem;
+    }
+}
+
+.bg-light {
+    background-color: #ffffff !important;
+}

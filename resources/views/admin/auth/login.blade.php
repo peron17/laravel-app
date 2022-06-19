@@ -10,17 +10,22 @@
                 <h1>Login</h1>
             </div>
             <div class="box-body">
-                <form action="" method="post">
+                <form action="{{ route('admin.login.action') }}" method="post">
+                    @csrf
                     <div class="mb-3">
                         <label for="Email" class="form-label"
                             >Email</label
                         >
                         <input
-                            type="email"
+                            type="text"
                             name="email"
                             id="email"
                             class="form-control"
+                            autofocus
                         />
+                        @if ($errors->has('email'))
+                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                        @endif
                     </div>
 
                     <div class="mb-4">
@@ -33,6 +38,9 @@
                             id="password"
                             class="form-control"
                         />
+                        @if ($errors->has('password'))
+                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                        @endif
                     </div>
 
                     <div class="mb-4">
